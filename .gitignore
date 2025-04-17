@@ -1,2 +1,6 @@
 *.env
-.idea/
+.idea
+.gradio
+__pycache__
+output.csv
+concepts.csv
