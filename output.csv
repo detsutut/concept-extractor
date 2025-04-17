@@ -1,3 +1,0 @@
-,id,name,match_score,semantic_tags
-0,116154003,patient,1,['person']
-1,69896004,rheumatoid arthritis,1,"['disorder', 'diagnosis']"
