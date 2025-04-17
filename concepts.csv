@@ -1,0 +1,7 @@
+,id,name,match_score,semantic_tags
+0,116154003,patient,1,['person']
+1,22253000,pain,1,"['symptom', 'b280-b289', 'finding']"
+2,279039007,low back pain,1,"['finding', 'disorder', 'diagnosis', 'symptom']"
+3,344001,ankle,1,[]
+4,69896004,rheumatoid arthritis,1,"['diagnosis', 'disorder']"
+5,70258002,ankle,1,[]

@@ -1,0 +1,8 @@
+deep_translator
+googletrans
+python_dotenv
+lara_sdk
+pandas
+rapidfuzz
+flashtext
+gradio>=5
