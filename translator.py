@@ -50,12 +50,13 @@ class Translators:
         self.__init_premium_translators__(secrets_path)
 
     def __init_premium_translators__(self, secrets_path):
-        deepl_keys = json.loads(dotenv_values(secrets_path).get("DEEPL_KEYS"))
-        for deepl_key in deepl_keys:
-            self.premium_translators.append((DeeplTranslator(api_key=deepl_key, target='en'), {'target':'en','type':'deepl'}))
-        lara_credentials = lara_sdk.Credentials(access_key_id=dotenv_values(secrets_path).get("LARA_KEY_ID"),
-                                       access_key_secret=dotenv_values(secrets_path).get("LARA_KEY_SECRET"))
-        if lara_credentials.access_key_id and lara_credentials.access_key_secret:
+        if dotenv_values(secrets_path).get("DEEPL_KEYS"):
+            deepl_keys = json.loads(dotenv_values(secrets_path).get("DEEPL_KEYS"))
+            for deepl_key in deepl_keys:
+                self.premium_translators.append((DeeplTranslator(api_key=deepl_key, target='en'), {'target':'en','type':'deepl'}))
+        if dotenv_values(secrets_path).get("LARA_KEY_ID") and dotenv_values(secrets_path).get("LARA_KEY_SECRET"):
+            lara_credentials = lara_sdk.Credentials(access_key_id=dotenv_values(secrets_path).get("LARA_KEY_ID"),
+                                           access_key_secret=dotenv_values(secrets_path).get("LARA_KEY_SECRET"))
             self.premium_translators.append((lara_sdk.Translator(lara_credentials),{'target':'en-US','type':'lana'}))
         if dotenv_values(secrets_path).get("CLOUD_TRANSLATE_KEY"):
             self.premium_translators.append((GoogleCloudTranslator(api_key=dotenv_values(secrets_path).get("CLOUD_TRANSLATE_KEY"), target='en'), {'target':'en','type':'cloud_translate'}))
