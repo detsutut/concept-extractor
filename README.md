@@ -25,13 +25,15 @@
 
 Command line usage
 
-```
+```bash
 python3 extract_cli.py --text="il mio paziente ha l'artrite reumatoide"
+
+{'id': {0: '116154003', 1: '69896004'}, 'name': {0: 'patient', 1: 'rheumatoid arthritis'}, 'match_score': {0: 1.0, 1: 1.0}, 'semantic_tags': {0: ['person'], 1: ['diagnosis', 'disorder']}}
 ```
 
 Interactive app usage
 
-```
+```bash
 python3 app.py
 ```
 

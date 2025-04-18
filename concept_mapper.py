@@ -33,8 +33,8 @@ class SNOMEDMapper:
             self.keyword_processor.add_keyword(term)
 
     def __preprocess_FSN__(self, fsn:str):
-        semantic_tags = [tag.strip() for tag in re.findall("\((.*?)\)", fsn)]
-        term = re.sub("\(.*\)","", fsn).strip()
+        semantic_tags = [tag.strip() for tag in re.findall(r"\((.*?)\)", fsn)]
+        term = re.sub(r"\(.*\)","", fsn).strip()
         return term, semantic_tags
 
     def exact_match(self, text):

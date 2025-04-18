@@ -5,15 +5,6 @@ from concept_mapper import SNOMEDMapper
 import argparse
 import pandas as pd
 
-############# CLI ARGUMENTS ##################
-parser = argparse.ArgumentParser()
-parser.add_argument('--text', action="store", dest='text', default='', type = str)
-parser.add_argument('--filter_tags', action="store", dest='filter_tags', default=[], type = list[str])
-parser.add_argument('--exclude', action="store", dest='exclude', default=False, type = bool)
-parser.add_argument('--overlap', action="store", dest='fuzzy_threshold', default=100, type = int)
-parser.add_argument('--premium', action="store", dest='use_premium', default=False, type = bool)
-args = parser.parse_args()
-
 ############# TOOLS ##################
 mapper = SNOMEDMapper("dictionaries/reuma_dict_extended.csv")
 translators = Translators(secrets_path="secrets.env")
@@ -43,6 +34,15 @@ def extract(text:str,
         return merged_df
 
 if __name__ == "__main__":
+    ############# CLI ARGUMENTS ##################
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--text', action="store", dest='text', default='', type=str)
+    parser.add_argument('--filter_tags', action="store", dest='filter_tags', default=[], type=list[str])
+    parser.add_argument('--exclude', action="store", dest='exclude', default=False, type=bool)
+    parser.add_argument('--overlap', action="store", dest='fuzzy_threshold', default=100, type=int)
+    parser.add_argument('--premium', action="store", dest='use_premium', default=False, type=bool)
+    args = parser.parse_args()
+
     os.chdir(os.path.dirname(__file__))
     print(args.__dict__)
     results_dataframe = extract(**args.__dict__)
