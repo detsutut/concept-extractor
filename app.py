@@ -1,5 +1,10 @@
 import extract_cli
 import pandas as pd
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--sslcert', action="store", dest='ssl_certfile', default=None)
+parser.add_argument('--sslkey', action="store", dest='ssl_keyfile', default=None)
 
 def extract(text:str, fuzzy_threshold:int, filter_tags_str:str, inclusion_flag:str, use_premium:bool)->pd.DataFrame:
     filter_tags = filter_tags_str.split(",")
@@ -63,5 +68,7 @@ with gr.Blocks() as demo:
     )
 
 demo.queue(max_size=20)
-demo.launch(share=False,
-            server_port=7878)
+demo.launch(server_name="0.0.0.0", server_port=7878 
+            ssl_keyfile = args.ssl_keyfile, 
+            ssl_certfile = args.ssl_certfile,
+            ssl_verify=False, pwa=True)
