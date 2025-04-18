@@ -68,7 +68,7 @@ with gr.Blocks() as demo:
     )
 
 demo.queue(max_size=20)
-demo.launch(server_name="0.0.0.0", server_port=7878 
+demo.launch(server_name="0.0.0.0", server_port=7878, 
             ssl_keyfile = args.ssl_keyfile, 
             ssl_certfile = args.ssl_certfile,
             ssl_verify=False, pwa=True)
