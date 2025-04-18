@@ -21,8 +21,6 @@
   </p>
 </div>
 
-<div align="center"><img src='app/assets/u.png' style='height:5em; min-width : 100px;'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><img src='app/assets/d.png' style='height:5em; padding-left:1%; padding-right:1%; min-width : 100px;'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><img src='app/assets/b.png' style='height:5em; min-width : 100px;'></div>
-
 ## Usage
 
 Command line usage
