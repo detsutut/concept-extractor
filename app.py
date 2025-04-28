@@ -1,4 +1,4 @@
-import extract_cli
+import core.concept_extractor as concept_extractor
 import pandas as pd
 import argparse
 
@@ -11,7 +11,7 @@ def extract(text:str, fuzzy_threshold:int, filter_tags_str:str, inclusion_flag:s
     filter_tags = filter_tags_str.split(",")
     if len(filter_tags)==1:
         filter_tags=[]
-    concepts_df = extract_cli.extract(text, fuzzy_threshold, filter_tags,
+    concepts_df = concept_extractor.extract(text, fuzzy_threshold, filter_tags,
                                       exclude=inclusion_flag=="exclude", use_premium=use_premium)
     if concepts_df is None:
         return gr.DataFrame(pd.DataFrame(data= [[None,None,None,None]],
@@ -69,7 +69,8 @@ with gr.Blocks() as demo:
     )
 
 demo.queue(max_size=20)
-demo.launch(server_name="0.0.0.0", server_port=7878, 
-            ssl_keyfile = args.ssl_keyfile, 
+demo.launch(server_name="0.0.0.0", server_port=7878,
+            favicon_path='favicon.ico',
+            ssl_keyfile = args.ssl_keyfile,
             ssl_certfile = args.ssl_certfile,
             ssl_verify=False, pwa=True)

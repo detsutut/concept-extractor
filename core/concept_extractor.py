@@ -1,13 +1,12 @@
 import os
-
-from translator import Translators
-from concept_mapper import SNOMEDMapper
 import argparse
 import pandas as pd
+from core.translator import Translators
+from core.concept_mapper import SNOMEDMapper
 
 ############# TOOLS ##################
-mapper = SNOMEDMapper("dictionaries/reuma_dict_extended.csv")
-translators = Translators(secrets_path="secrets.env")
+mapper = SNOMEDMapper(os.path.dirname(__file__)+"/dictionaries/reuma_dict_extended.csv")
+translators = Translators(secrets_path=os.path.dirname(__file__)+"/secrets.env")
 
 def extract(text:str,
             fuzzy_threshold:int=100,

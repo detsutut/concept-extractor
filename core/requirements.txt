@@ -5,4 +5,3 @@ lara_sdk
 pandas
 rapidfuzz
 flashtext
-gradio>=5
