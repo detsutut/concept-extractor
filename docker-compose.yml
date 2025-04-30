@@ -16,5 +16,5 @@ services:
       - ./api.py:/app/api.py
       - ./favicon.ico:/app/favicon.ico
     working_dir: /app
-    #command: uvicorn api:app --host 0.0.0.0 --port 8000 --ssl-keyfile ${SSL_KEYFILE} --ssl-certfile ${SSL_CERTFILE}
-    command: uvicorn api:app --host 0.0.0.0 --port 8000
+    command: uvicorn api:app --host 0.0.0.0 --port 8000 --ssl-keyfile ${SSL_KEYFILE} --ssl-certfile ${SSL_CERTFILE}
+    #command: uvicorn api:app --host 0.0.0.0 --port 8000
